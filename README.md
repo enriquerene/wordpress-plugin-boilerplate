@@ -1,4 +1,22 @@
-### WP Plugin Boilerplate — Quick Guide
+# WP Plugin Boilerplate
+
+A professional, feature-rich WordPress plugin boilerplate designed for modern development workflows. This boilerplate provides a solid foundation for building scalable and maintainable WordPress plugins, leveraging best practices, design patterns, and a robust Docker-based development environment.
+
+![Plugin Screenshot](screenshot.png)
+
+### Key Features
+
+-   **Modular Architecture**: Built with a clean, modular structure following WordPress best practices to ensure maintainability.
+-   **Facade Pattern**: Utilizes the Facade pattern for a cleaner and more intuitive API.
+-   **Composer Based**: Fully managed by Composer for seamless dependency management and PSR-4 autoloading.
+-   **Docker Ready**: Includes a complete Docker environment (WordPress + MySQL) for instant development.
+-   **Hot Reloading**: Supports instant PHP revalidation and OPCache resetting for a smooth development experience.
+-   **I18n Ready**: Complete internationalization support out of the box.
+-   **Developer Friendly**: Designed for developers with a focus on code quality, readability, and ease of customization.
+
+---
+
+### Quick Guide
 
 Short checklist to rename this boilerplate and run it locally with Docker.
 
