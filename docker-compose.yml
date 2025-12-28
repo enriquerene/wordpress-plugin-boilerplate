@@ -1,0 +1,58 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: wppb-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: rootwordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: wppb-wp
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - "9000:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: "1"
+      DEV_HOT_RELOAD: "1"
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/wp-plugin-boilerplate
+      - ./.docker/php/conf.d/dev.ini:/usr/local/etc/php/conf.d/dev.ini:ro
+      - ./.docker/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+
+  composer:
+    image: composer:2
+    container_name: wppb-composer
+    working_dir: /var/www/html/wp-content/plugins/wp-plugin-boilerplate
+    user: "${UID:-1000}:${GID:-1000}"
+    depends_on:
+      wordpress:
+        # Run once WordPress container is started (no fragile healthcheck required)
+        condition: service_started
+    command: sh -lc "composer install --no-interaction --prefer-dist"
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/wp-plugin-boilerplate
+      - composer_cache:/tmp/composer
+
+volumes:
+  db_data:
+  composer_cache:
