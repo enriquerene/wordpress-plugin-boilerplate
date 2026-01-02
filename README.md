@@ -118,4 +118,3 @@ Notes
 - **Medium**: [@enriquerenebr](https://medium.com/@enriquerenebr)
 - **LinkedIn**: [enriquerenebr](https://www.linkedin.com/enriquerenebr)
 - **Stack Overflow**: [Enrique René](https://stackoverflow.com/users/5382576/enrique-ren%C3%A9)
-- **WhatsApp**: [Connect Now](https://wa.me/5511999999999) <!-- Placeholder as the exact number isn't in Home.mdx, just the icon and label -->
