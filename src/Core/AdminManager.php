@@ -72,7 +72,7 @@ class AdminManager
                 ]),
                 UI::featureCard([
                     'title' => I18n::text('Docker Ready'),
-                    'description' => I18n::text('Includes a complete Docker environment with hot reloading for a smooth development experience.'),
+                    'description' => I18n::text('Includes a complete Docker environment (PHP & Node.js) with hot reloading for both PHP and Gutenberg blocks.'),
                     'icon' => 'dashicons-cloud',
                 ]),
                 UI::featureCard([
@@ -84,6 +84,11 @@ class AdminManager
                     'title' => I18n::text('Composer Based'),
                     'description' => I18n::text('Fully managed by Composer for seamless dependency management and autoloading.'),
                     'icon' => 'dashicons-performance',
+                ]),
+                UI::featureCard([
+                    'title' => I18n::text('Gutenberg Ready'),
+                    'description' => I18n::text('Modern block development support integrated with @wordpress/scripts and Storybook isolation.'),
+                    'icon' => 'dashicons-block-default',
                 ]),
             ])
         ]);

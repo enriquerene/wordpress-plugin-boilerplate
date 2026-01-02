@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wp-plugin-boilerplate/author-presentation",
+  "version": "1.0.0",
+  "title": "Author Presentation",
+  "category": "widgets",
+  "icon": "admin-users",
+  "description": "A block that renders an author presentation section similar to Storybook addon items.",
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": "h4",
+      "default": "Addons"
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": ".sb-section-item-paragraph",
+      "default": "Integrate your tools with Storybook to connect workflows."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Discover all addons"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "textdomain": "plugin-name",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

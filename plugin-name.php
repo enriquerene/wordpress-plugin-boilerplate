@@ -16,9 +16,13 @@ require_once __DIR__ . '/vendor/autoload.php';
 if (!defined('WPPB_PLUGIN_BASENAME')) {
     define('WPPB_PLUGIN_BASENAME', plugin_basename(__FILE__));
 }
+if (!defined('WPPB_PLUGIN_DIR')) {
+    define('WPPB_PLUGIN_DIR', plugin_dir_path(__FILE__));
+}
 
 use WPPB\Core\AdminManager;
 use WPPB\Core\Requirements;
+use WPPB\Core\BlockManager;
 
 class Plugin
 {
@@ -31,6 +35,7 @@ class Plugin
             }
             self::addActionToPluginCard();
             self::initializeAdmin();
+            self::initializeBlocks();
 //            self::initializeWooCommerce();
 //            self::initializePublic();
 //            self::initializeIntegrations();
@@ -49,6 +54,11 @@ class Plugin
     {
         AdminManager::addTopLevelMenuEntry();
         AdminManager::addTopFixedMenuItem();
+    }
+
+    private static function initializeBlocks(): void
+    {
+        BlockManager::init();
     }
 }
 

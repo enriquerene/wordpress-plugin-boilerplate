@@ -9,6 +9,7 @@ A professional, feature-rich WordPress plugin boilerplate designed for modern de
 -   **Modular Architecture**: Built with a clean, modular structure following WordPress best practices to ensure maintainability.
 -   **Facade Pattern**: Utilizes the Facade pattern for a cleaner and more intuitive API.
 -   **Composer Based**: Fully managed by Composer for seamless dependency management and PSR-4 autoloading.
+-   **Gutenberg Ready**: Modern block development support integrated with `@wordpress/scripts`.
 -   **Docker Ready**: Includes a complete Docker environment (WordPress + MySQL) for instant development.
 -   **Hot Reloading**: Supports instant PHP revalidation and OPCache resetting for a smooth development experience.
 -   **I18n Ready**: Complete internationalization support out of the box.
@@ -42,33 +43,52 @@ Suggested searches: `WP Plugin Boilerplate`, `wp-plugin-boilerplate`, `WPPB`, `p
 
 ### Local Development (Docker)
 
-This repo ships with `docker-compose` for a quick WordPress + MySQL stack.
+This repo ships with `docker-compose` for a quick WordPress + MySQL stack, including PHP (Composer) and Node.js environments.
 
 What you get
 - WordPress: `wordpress:6.7.1-php8.3-apache` on http://localhost:8080
 - MySQL: `mysql:8.0` with DB `wordpress` / user `wordpress` / pass `wordpress`
 - Your plugin is mounted into `/var/www/html/wp-content/plugins/wp-plugin-boilerplate`
 - Composer auto-run: a one-shot `composer:2` service runs `composer install` for the plugin on `docker compose up`.
+- Node.js auto-run: a `node:22` service runs `npm install` and `npm run start` (watch mode) on `docker compose up`.
+- Storybook: accessible via http://localhost:6006 (runs inside the Node container).
 
 Run
-```
+```bash
 docker compose up -d
 ```
 
 Visit http://localhost:8080 to finish the WordPress installer. Then activate “WP Plugin Boilerplate” in Plugins.
 
 Stop & remove
-```
+```bash
 docker compose down
 ```
 
 Wipe DB volume too
-```
+```bash
 docker compose down -v
 ```
 
+#### Node.js Commands (via Docker)
+
+To run build:
+```bash
+docker compose run --rm node npm run build
+```
+
+To run storybook (manually if not started):
+```bash
+docker compose run --rm -p 6006:6006 node npm run storybook
+```
+
+To run lint:
+```bash
+docker compose run --rm node npm run lint:js
+```
+
 Notes
-- UID/GID: The Composer service runs as `${UID}:${GID}` (defaults to 1000:1000). On Linux, export your IDs before first run for correct file ownership:
+- UID/GID: The Composer and Node services run as `${UID}:${GID}` (defaults to 1000:1000). On Linux, export your IDs before first run for correct file ownership:
   - `export UID=$(id -u) && export GID=$(id -g)`
   - Or create a `.env` file with `UID=…` and `GID=…`.
 - Re-run Composer manually: `docker compose run --rm composer`

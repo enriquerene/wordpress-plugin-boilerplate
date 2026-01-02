@@ -1,6 +1,7 @@
 # Composer
 /vendor/
 composer.phar
+.output.txt
 
 # IDE - PhpStorm / IntelliJ IDEA
 /.idea/
@@ -18,3 +19,12 @@ Thumbs.db
 *~
 *.swp
 *.swo
+
+# Node
+/node_modules/
+/build/
+/dist/
+package-lock.json
+
+*storybook.log
+storybook-static

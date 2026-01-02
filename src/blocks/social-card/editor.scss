@@ -1,0 +1,19 @@
+.sb-section-item {
+    border: 1px dashed #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    .sb-section-item-image-wrapper {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .sb-section-item-link {
+        color: #029CFD;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+}

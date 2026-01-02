@@ -46,12 +46,24 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     depends_on:
       wordpress:
-        # Run once WordPress container is started (no fragile healthcheck required)
         condition: service_started
     command: sh -lc "composer install --no-interaction --prefer-dist"
     volumes:
       - ./:/var/www/html/wp-content/plugins/wp-plugin-boilerplate
       - composer_cache:/tmp/composer
+
+  node:
+    image: node:22
+    container_name: wppb-node
+    working_dir: /usr/src/app
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "6006:6006"
+    command: sh -lc "npm install && npm run start"
 
 volumes:
   db_data:

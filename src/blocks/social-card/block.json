@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wp-plugin-boilerplate/social-card",
+  "version": "1.0.0",
+  "title": "Social Card",
+  "category": "widgets",
+  "icon": "share",
+  "description": "A block that renders a social card similar to Storybook section items.",
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "source": "html",
+      "selector": ".wppb-social-card-heading",
+      "default": "Add styling and CSS"
+    },
+    "description": {
+      "type": "string",
+      "source": "html",
+      "selector": ".wppb-social-card-paragraph",
+      "default": "Like with web applications, there are many ways to include CSS within Storybook."
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Learn more"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "#"
+    }
+  },
+  "textdomain": "plugin-name",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,39 @@
+.wppb-social-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 170px;
+
+  img {
+    //object-fit: cover;
+    height: 30px;
+    width: 30px;
+  }
+
+  .wppb-social-card-heading {
+    padding-top: 20px !important;
+    padding-bottom: 5px !important;
+    margin: 0 !important;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .wppb-social-card-paragraph {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  a, .wppb-social-card-link {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #029CFD;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
