@@ -7,13 +7,19 @@ A professional, feature-rich WordPress plugin boilerplate designed for modern de
 ### Key Features
 
 -   **Modular Architecture**: Built with a clean, modular structure following WordPress best practices to ensure maintainability.
--   **Facade Pattern**: Utilizes the Facade pattern for a cleaner and more intuitive API.
--   **Composer Based**: Fully managed by Composer for seamless dependency management and PSR-4 autoloading.
--   **Gutenberg Ready**: Modern block development support integrated with `@wordpress/scripts`.
+-   **Gutenberg Ready**: Modern block development support integrated with `@wordpress/scripts` and Storybook.
 -   **Docker Ready**: Includes a complete Docker environment (WordPress + MySQL) for instant development.
--   **Hot Reloading**: Supports instant PHP revalidation and OPCache resetting for a smooth development experience.
--   **I18n Ready**: Complete internationalization support out of the box.
--   **Developer Friendly**: Designed for developers with a focus on code quality, readability, and ease of customization.
+-   **Developer Friendly**: Designed with a focus on code quality, readability, and ease of customization.
+
+---
+
+### Storybook & Blocks
+
+We use **Storybook** to develop and document our Gutenberg blocks in isolation. This ensures that UI components are consistent, well-tested, and easy to preview without needing a full WordPress installation active during the design phase.
+
+**Currently Implemented Blocks:**
+- **Social Card**: A versatile block for featuring content with an image, title, and description.
+- **Author Presentation**: A specialized block designed to showcase author details or specific integrations with an elegant overlapping layout.
 
 ---
 
@@ -103,3 +109,13 @@ Notes
   - Mounts a PHP ini override enabling instant OPCache revalidation.
   - Loads an MU-plugin that calls `opcache_reset()` on each request in dev.
 - To disable: set `DEV_HOT_RELOAD=0` (or remove) and `docker compose up -d`.
+
+---
+
+### About Author
+
+- **GitHub**: [enriquerene/wordpress-plugin-boilerplate](https://github.com/enriquerene/wordpress-plugin-boilerplate)
+- **Medium**: [@enriquerenebr](https://medium.com/@enriquerenebr)
+- **LinkedIn**: [enriquerenebr](https://www.linkedin.com/enriquerenebr)
+- **Stack Overflow**: [Enrique René](https://stackoverflow.com/users/5382576/enrique-ren%C3%A9)
+- **WhatsApp**: [Connect Now](https://wa.me/5511999999999) <!-- Placeholder as the exact number isn't in Home.mdx, just the icon and label -->
